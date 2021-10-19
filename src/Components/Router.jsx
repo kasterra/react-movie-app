@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from '../Routes/Home';
-import Detail from '../Routes/Detail';
+import TV from '../Routes/TV';
 import Search from '../Routes/Search';
 import Header from './Header';
 
@@ -11,7 +11,7 @@ export default () => (
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/detail" exact component={Detail} />
+        <Route path="/tv" exact component={TV} />
         <Route path="/search" exact component={Search} />
         <Route path="*" component={() => <h1>404</h1>} />
       </Switch>
