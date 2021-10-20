@@ -12,14 +12,25 @@ export default class extends React.Component {
       loading: false,
       error: null,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
+  
+  handleSubmit(event) {
+    event.preventDefault();
     const {searchTerm} = this.state;
     if(searchTerm !== ""){
       this.searchByTerm();
     }
   }
+  
+  updateTerm = (event) => {
+    const {
+      target:{value}
+    } = event;
+    this.setState({searchTerm:value});
+    const {searchTerm} = this.state;
+  };
 
   searchByTerm = async() =>{
     const {searchTerm} = this.state;
@@ -35,7 +46,7 @@ export default class extends React.Component {
     finally{
       this.setState({loading: false});
     }
-  }
+  };
 
   render() {
     const {
@@ -49,7 +60,8 @@ export default class extends React.Component {
         loading={loading}
         error={error}
         handleSubmit={this.handleSubmit}
+        updateTerm={this.updateTerm}
       />
     );
-  }
+  };
 }
