@@ -99,16 +99,18 @@ const DetailPresenter = ({ result, loading, error }) => (
               </Item>
               <Divider>·</Divider>
               <Item>
-                {`${result.runtime || result.episode_run_time[0]} min`}
+                {`${result.runtime || (result.episode_run_time && result.episode_run_time[0]) || '?'} min`}
               </Item>
               <Divider>·</Divider>
               <Item>
-                {result.genres && 
+                {(result.genres && result.genres.length > 1) ?
                   result.genres.map((genre,index) => 
                     index === result.genres.length - 1
                       ? genre.name 
                       : `${genre.name} / `)
-              }</Item>
+                  : "no genres info"
+                }
+              </Item>
             </ItemContainer>
             <Overview>
               {result.overview}
