@@ -61,7 +61,7 @@ const SearchPresenter = ({
               id={show.id}
               title={show.original_name}
               imageUrl={show.poster_path}
-              isMovie
+              isMovie={false}
               rating={show.vote_average}
               year={show.first_air_date && show.first_air_date.substring(0,4)}
      />)}
