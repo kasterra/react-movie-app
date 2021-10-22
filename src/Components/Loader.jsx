@@ -1,6 +1,9 @@
-import { getDefaultNormalizer } from '@testing-library/react';
 import React from 'react';
 import styled from 'styled-components'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
     height:100vh;
@@ -10,6 +13,6 @@ const Container = styled.div`
     font-size:28pt;
 `;
 
-const Loader = () =><Container><span role="img" aria-label="Loading">⏰</span></Container>
+const Loader = () =><Container><FontAwesomeIcon icon={faSpinner} pulse size="5x"/></Container>
 
 export default Loader;
