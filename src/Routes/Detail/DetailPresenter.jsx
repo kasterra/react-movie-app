@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Helmet from 'react-helmet';
 import Loader from '../../Components/Loader';
 import noPoster from "../../assets/error.jpg";
+import IMDB from '../../Components/IMDB';
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -111,6 +112,8 @@ const DetailPresenter = ({ result, loading, error }) => (
                   : "no genres info"
                 }
               </Item>
+              <Divider>·</Divider>
+              <IMDB externalID={result.external_ids}/>
             </ItemContainer>
             <Overview>
               {result.overview}
