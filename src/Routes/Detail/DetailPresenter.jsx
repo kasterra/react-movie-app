@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import Loader from '../../Components/Loader';
 import noPoster from "../../assets/error.jpg";
 import IMDB from '../../Components/IMDB';
+import SnsInfo from '../../Components/SnsInfo';
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -33,6 +34,9 @@ const Content = styled.div`
   height:100%;
   position:relative;
   z-index:1;
+  @media screen and (max-width:1024px){
+    //flex-direction:column;
+  }
 `;
 
 const Cover = styled.div`
@@ -42,6 +46,11 @@ const Cover = styled.div`
   background-size:cover;
   height:100%;
   border-radius:5px;
+  @media screen and (max-width:1024px){
+    width:100%;
+    background-size:contain;
+    background-repeat:no-repeat;
+  }
 `;
 
 const Data = styled.div`
@@ -114,6 +123,9 @@ const DetailPresenter = ({ result, loading, error }) => (
               </Item>
               <Divider>·</Divider>
               <IMDB externalID={result.external_ids}/>
+            </ItemContainer>
+            <ItemContainer >
+              <SnsInfo externalID={result.external_ids}/>
             </ItemContainer>
             <Overview>
               {result.overview}
