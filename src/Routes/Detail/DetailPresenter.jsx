@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Helmet from 'react-helmet';
 import Loader from '../../Components/Loader';
 import noPoster from "../../assets/error.jpg";
+import Message from '../../Components/Message';
 import IMDB from '../../Components/IMDB';
 import SnsInfo from '../../Components/SnsInfo';
 
@@ -132,6 +133,7 @@ const DetailPresenter = ({ result, loading, error }) => (
             </Overview>
           </Data>
         </Content>
+        {error && <Message color="#e74c3c" text = {error}/>}
       </Container>
     </>
   )

@@ -29,7 +29,6 @@ export default class extends React.Component {
       target:{value}
     } = event;
     this.setState({searchTerm:value});
-    const {searchTerm} = this.state;
   };
 
   searchByTerm = async() =>{
